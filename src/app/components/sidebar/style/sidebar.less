@@ -1,0 +1,36 @@
+@transition: 0.4s;
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background-color: white;
+    box-shadow: 1px 0 5px gray;
+    overflow-y: scroll;
+
+    transition: @transition; /* vendorless fallback */
+    -o-transition: @transition; /* opera */
+    -ms-transition: @transition; /* IE 10 */
+    -moz-transition: @transition; /* Firefox */
+    -webkit-transition: @transition; /*safari and chrome */
+}
+
+.sidebar:hover {
+    width: 200px;
+
+    transition: @transition; /* vendorless fallback */
+    -o-transition: @transition; /* opera */
+    -ms-transition: @transition; /* IE 10 */
+    -moz-transition: @transition; /* Firefox */
+    -webkit-transition: @transition; /*safari and chrome */
+}
+
+.sidebar:hover .item {
+    width: 200px;
+}
+
+.sidebar:hover .item-title {
+    display: inline-block;
+}

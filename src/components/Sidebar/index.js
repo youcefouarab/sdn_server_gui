@@ -1,5 +1,5 @@
-import './style/sidebar.less';
-import Item from './item';
+import './style.less';
+import Item from './Item';
 
 function Sidebar() {
   return (

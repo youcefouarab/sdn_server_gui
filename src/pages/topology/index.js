@@ -1,11 +1,9 @@
-import Graph from './components/graph';
+import Graph from './Graph'
 
-function Topology() {
+export default function Topology() {
     return (
         <div className='topology'>
             <Graph />
         </div>
     );
 }
-  
-export default Topology;

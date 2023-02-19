@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import './style/item.less';
-import { BiNetworkChart } from 'react-icons/bi'
-import { MdSpeed } from 'react-icons/md'
+import { Link } from 'react-router-dom';
+import './style.less';
+import { BiNetworkChart } from 'react-icons/bi';
+import { MdSpeed } from 'react-icons/md';
 
 function Item({title, link}){
     var icon = <></>
@@ -17,7 +17,7 @@ function Item({title, link}){
         <Link to={link}>
             <div className='item'> 
                 <span className='item-icon'>{icon}</span>
-                <span className='item-title'>{title}</span>
+                <span className='item-title truncate-one'>{title}</span>
             </div>
         </Link>
     );

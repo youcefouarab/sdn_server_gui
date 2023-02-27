@@ -133,7 +133,6 @@ export default function runNetworkGraph(container, nodesData, linksData,
         .call(drag(simulation));
 
     label.on('mouseover', (d) => {
-        console.log('here');
         addTooltip(hoverTooltip, d, d3.event.pageX, d3.event.pageY);
     }).on('mouseout', () => {
         removeTooltip();

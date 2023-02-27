@@ -1,8 +1,24 @@
+@page-transition: 0.4s;
+
 .page {
-    position: absolute;
-    margin-left: 50px;
-    padding: 10px;
-    background-color: white;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+
+    transition: @page-transition; /* vendorless fallback */
+    -o-transition: @page-transition; /* opera */
+    -ms-transition: @page-transition; /* IE 10 */
+    -moz-transition: @page-transition; /* Firefox */
+    -webkit-transition: @page-transition; /*safari and chrome */
+}
+
+.reduced-left {
+    left: var(--reduced-width);
+}
+
+.full-left {
+    left: var(--full-width);
 }
 
 .truncate-one {

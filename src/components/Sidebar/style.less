@@ -1,12 +1,19 @@
 @sidebar-transition: 0.4s;
 @item-transition: 0.2s;
+@reduced-width: 50px;
+@full-width: 170px;
+@item-margins: 10px;
+
+:root {
+    --full-width: @full-width;
+    --reduced-width: @reduced-width;
+}
 
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 50px;
     background-color: white;
     box-shadow: 1px 0 5px gray;
     overflow-y: scroll;
@@ -18,28 +25,58 @@
     -webkit-transition: @sidebar-transition; /*safari and chrome */
 }
 
-.sidebar:hover {
-    width: 200px;
-
-    transition: @sidebar-transition; /* vendorless fallback */
-    -o-transition: @sidebar-transition; /* opera */
-    -ms-transition: @sidebar-transition; /* IE 10 */
-    -moz-transition: @sidebar-transition; /* Firefox */
-    -webkit-transition: @sidebar-transition; /*safari and chrome */
+.sidebar-unlocked {
+    width: @reduced-width;
 }
 
-.sidebar:hover .item {
-    width: 200px;
+.sidebar-unlocked:hover {
+    width: @full-width;
 }
 
-.sidebar:hover .item-title {
+.sidebar-locked {
+    width: @full-width;
+}
+
+.sidebar-unlocked:hover .item, .sidebar-locked .item {
+    width: @full-width;
+}
+
+.sidebar-unlocked:hover .item-title, .sidebar-unlocked:hover .sidebar-lock,
+.sidebar-locked .item-title, .sidebar-locked .sidebar-lock {
     display: inline-block;
+}
+
+.sidebar-lock {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #333;
+    display: none;
+
+    transition: @item-transition; /* vendorless fallback */
+    -o-transition: @item-transition; /* opera */
+    -ms-transition: @item-transition; /* IE 10 */
+    -moz-transition: @item-transition; /* Firefox */
+    -webkit-transition: @item-transition; /*safari and chrome */
+}
+
+.sidebar-lock:hover {
+    cursor: pointer;
+    background-color: #ddd;
+
+    transition: @item-transition; /* vendorless fallback */
+    -o-transition: @item-transition; /* opera */
+    -ms-transition: @item-transition; /* IE 10 */
+    -moz-transition: @item-transition; /* Firefox */
+    -webkit-transition: @item-transition; /*safari and chrome */
 }
 
 .item {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: @reduced-width;
+    height: @reduced-width;
     background-color: white;
     color: #333;
 
@@ -62,16 +99,16 @@
 
 .item-icon {
     position: absolute;
-    margin: 10px;
-    width: 30px;
-    height: 30px;
+    width: @reduced-width - 2 * @item-margins;
+    height: @reduced-width - 2 * @item-margins;
+    margin: @item-margins;
 }
 
 .item-title {
     position: absolute;
-    left: 60px;
+    left: @reduced-width + @item-margins;
     top: 50%;
     transform: translateY(-50%);
-    width: 130px;
+    width: @full-width - @reduced-width - 2 * @item-margins;
     display: none;
 }
